@@ -1,0 +1,19 @@
+---
+title: "ST558 Project 2"
+author: "Yu Jiang"
+date: "7/3/2020"
+output: 
+  rmarkdown::github_document
+---
+
+# Introduction
+
+# Data Split
+
+# Ensemble Model Fit
+
+# Linear Regression Fit
+
+# Model Selection
+
+# Conclusions

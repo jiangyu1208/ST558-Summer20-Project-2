@@ -10,7 +10,7 @@ output:
 
 ## Describe the Data
 
-Many articles have been published by Mashable in the past two years and this original dataset can be found [this website](https://archive.ics.uci.edu/ml/datasets/Online+News+Popularity). 
+Many articles have been published by Mashable over two years from seventh Jan, 2013 and this original dataset can be found [this website](https://archive.ics.uci.edu/ml/datasets/Online+News+Popularity). 
 
 There are 61 variables in total from the dataset above: 58 predictive attributes, 2 non-predictive and 1 goal field. More details about used data will be discussed later.
 
@@ -18,13 +18,21 @@ There are 61 variables in total from the dataset above: 58 predictive attributes
 
 We are interested in predicting the popularity of a given article and thus we are going to  treat *shares*, an index of the article popularity, as the response of models and some other variables as predictors. 
 
-After fitting the linear and non-linear models respectively, we can choose the best one by comparing some numeric values, for example, AIC, and then we can make a conclusion that which predictors contribute most to the target, *shares*.
+After fitting the linear and ensemble models respectively, we can choose the best two different types of models by comparing some numeric values, for example, AIC, and then we can make a conclusion that which predictors contribute most to the target, *shares*.
 
 ## Methods
 
-After slicing data into two sets, a training set (70% of the data) and the test set (30% of the data), we are going to use the threshold of 1400 shares to create two classes: if the number of shares is greater than 1400, then the article is classified as popular; if the number of shares is less than or equal to 1400, then the article is classified as unpopular in order to formulate a classification problem.
+First, we can slice data into two sets, a training set (70% of the data) and the test set (30% of the data) and then we are going to fit two types of models to predict the shares.
 
-Two types of models will be used to predict the shares. One is about an ensemble model (bagged trees, random forests, or boosted trees) and the other is about a linear regression model.
+Second, we are going to consider two types of models.
+
+For the linear regression model, We will try to predict popularity in two ways. The first target is as it is recorded, as the number of times the articles is shared over the period. The second target is a binary variable which discretizes the above. Following Fernandes et al. (section 3.1), an article is considered popular if it exceeds 1400 shares. Therefore, we are going to use the threshold of 1400 shares to create two classes: if the number of shares is greater than 1400, then the article is classified as popular; if the number of shares is less than or equal to 1400, then the article is classified as unpopular in order to formulate a classification problem.
+
+We are going to use multiple linear regression for the first task and binary logistic regression for the second one.
+
+For the ensemble models, we will fit the three different models(bagged trees, random forests, or boosted trees) and choose the best one after comparing the misclassification rate.
+
+Finally, we will decide the best two different types of models for our target. 
 
 # Data Study
 
@@ -41,30 +49,168 @@ Similarly, for the ensemble model, I am also going to start to fit these models 
 library(tidyverse)
 set.seed(2)
 
-# Read data and select 'Monday'
+# Read data and remove the first two columns
 news_pop <- read_csv('OnlineNewsPopularity.csv')[, -c(1, 2)]
-
-# Convert 'shares' into factor: <= 1400: unpopular, > 1400: popular
-news_pop$shares[news_pop$shares <= 1400] <- 0
-news_pop$shares[news_pop$shares > 1400] <- 1
-news_pop$shares <- factor(news_pop$shares, 
-                          levels = c(0, 1), 
-                          labels = c('unpopular', 'popular'))
 
 # Just consider 'Monday' at first 
 monday <- news_pop %>% select(-c("weekday_is_tuesday", "weekday_is_wednesday",
                              "weekday_is_thursday", "weekday_is_friday",
                              "weekday_is_saturday", "weekday_is_sunday"))
 
+# Check if the data has any missing values
+sum(is.na(monday))
+
+# Split the 'Monday' data, 70% of the data for training and the rest for testing
+train <- sample(1:nrow(monday), size = nrow(monday) * 0.7)
+test <- dplyr::setdiff(1:nrow(monday), train)
+
+mondayTrain <- monday[train, ]
+mondayTest <- monday[test, ]
 ```
 
 ## Data Summarizations
 
+### Response Variable 
+
+```{r, message = FALSE}
+# Load libraries and set the seed
+library(ggplot2)
+set.seed(2)
+
+# Basic summary of the 'monday' data
+summary(mondayTrain)
+
+# Histogram of 'shares'
+ggplot(data = mondayTrain, aes(x = shares)) +
+  geom_histogram()
+
+```
+
+Since the histogram of share is highly skewed, we can consider to use the log transformation to obtain a new histogram for shares. 
+
+```{r, message = FALSE}
+x <- log(mondayTrain$shares)
+
+ggplot(data = mondayTrain, aes(x)) +
+  geom_histogram() + 
+  xlab('Log(shares)')
+```
+
+After comparing these two histograms, we decide to use the log(shares) as our response for the multiple linear regression model. 
+
 # Modeling
 
-## Ensemble Model Fit
-
 ## Linear Regression Fit
+
+### Multiple Linear Regression
+
+First, we fit the multiple linear regression with all predictors.
+
+```{r}
+# Multiple linear model 1
+fit.1 <- lm(log(shares) ~ . , data = mondayTrain)
+summary(fit.1)
+```
+
+After deleting some predictors whose p-value is larger than 0.05, we can obtain two fit models as follows,
+
+```{r}
+# Multiple linear model 2 
+fit.2 <- lm(log(shares) ~ . - n_unique_tokens - n_non_stop_words - 
+              n_non_stop_unique_tokens - num_videos - 
+              data_channel_is_world- kw_max_max - 
+              self_reference_min_shares -  self_reference_max_shares - 
+              self_reference_avg_sharess - 
+              LDA_00 - LDA_01 - LDA_02 - LDA_03 - LDA_04 -
+              global_sentiment_polarity - global_rate_positive_words -
+              global_rate_negative_words - rate_positive_words - 
+              rate_negative_words - avg_positive_polarity - 
+              max_positive_polarity - avg_negative_polarity - 
+              min_negative_polarity - max_negative_polarity - 
+              abs_title_sentiment_polarity, data = mondayTrain)
+summary(fit.2)
+
+# Multiple linear model 3
+fit.3 <- lm(log(shares) ~ . - n_unique_tokens - n_non_stop_words - 
+              n_non_stop_unique_tokens - num_videos - 
+              data_channel_is_lifestyle - 
+              data_channel_is_world - kw_max_max - 
+              self_reference_min_shares -  self_reference_max_shares - 
+              self_reference_avg_sharess - 
+              LDA_00 - LDA_01 - LDA_02 - LDA_03 - LDA_04 -
+              global_sentiment_polarity - global_rate_positive_words -
+              global_rate_negative_words - rate_positive_words - 
+              rate_negative_words - avg_positive_polarity - 
+              max_positive_polarity - avg_negative_polarity - 
+              min_negative_polarity - max_negative_polarity - 
+              abs_title_sentiment_polarity, data = mondayTrain)
+summary(fit.3)
+```
+
+After deleting some unnecessary predictors twice, we can see that for multiple linear model 3, all p-values are smaller than 0.05, which means that all predictors are statistically significant.
+
+### Binary Logistic Regression
+
+Use *shares* to create the binary variable : diving the shares into two groups
+(<1400 and >= 1400) and also start using all predictors and delete some predictors whose p-value is larger than 0.05.
+
+```{r}
+# Convert 'shares' into factor: <= 1400: unpopular, > 1400: popular
+mondayTrain$shares[mondayTrain$shares <= 1400] <- 0
+mondayTrain$shares[mondayTrain$shares > 1400] <- 1
+
+mondayTrain$shares <- factor(mondayTrain$shares, 
+                          levels = c(0, 1))
+# GLM model 1
+glmFit.1 <- glm(shares~. , data = mondayTrain, family = 'binomial')
+summary(glmFit.1)
+
+# GLM model 2
+glmFit.2 <- glm(shares ~ . - n_tokens_title - n_unique_tokens - 
+                  n_non_stop_words - n_non_stop_unique_tokens - 
+                  num_imgs - num_videos - data_channel_is_lifestyle - 
+                  data_channel_is_world - self_reference_min_shares - 
+                  self_reference_max_shares - self_reference_avg_sharess -
+                  weekday_is_monday - LDA_00 - LDA_01 - LDA_02 - LDA_03 -
+                  LDA_04 - global_sentiment_polarity -
+                  global_rate_positive_words - rate_positive_words - 
+                  rate_negative_words - avg_positive_polarity - 
+                  max_positive_polarity - avg_negative_polarity -
+                  min_negative_polarity - max_negative_polarity - 
+                  abs_title_sentiment_polarity, data = mondayTrain, 
+                family = 'binomial')
+summary(glmFit.2)
+
+# GLM model 3
+glmFit.3 <- glm(shares ~ . - n_tokens_title - n_unique_tokens - 
+                  n_non_stop_words - n_non_stop_unique_tokens - 
+                  num_imgs - num_videos - data_channel_is_lifestyle - 
+                  data_channel_is_world - self_reference_min_shares - 
+                  self_reference_max_shares - self_reference_avg_sharess -
+                  weekday_is_monday - LDA_00 - LDA_01 - LDA_02 - LDA_03 -
+                  LDA_04 - global_sentiment_polarity -
+                  global_rate_positive_words - global_rate_negative_words -
+                  rate_positive_words - rate_negative_words -
+                  avg_positive_polarity - max_positive_polarity -
+                  avg_negative_polarity - min_negative_polarity -
+                  max_negative_polarity - abs_title_sentiment_polarity, 
+                data = mondayTrain, family = 'binomial')
+summary(glmFit.3)
+
+
+```
+After deleting some unnecessary predictors twice, we can see that for binary logistic regression model 3, all p-values are smaller than 0.05, which means that all predictors are statistically significant.
+
+## Ensemble model Fit
+ 
+### Bagged Tree 
+
+
+
+### Random Forest
+
+### Boosted Tree
+
 
 ## Model Selection
 

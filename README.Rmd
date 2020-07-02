@@ -30,7 +30,7 @@ For the linear regression model, We will try to predict popularity in two ways. 
 
 We are going to use multiple linear regression for the first task and binary logistic regression for the second one.
 
-For the ensemble models, we will fit the three different models(bagged trees, random forests, or boosted trees) and choose the best one after comparing the misclassification rate.
+For the ensemble models, we will also fit the two different models(bagged trees and boosted trees) and choose the best one after comparing the misclassification rate.
 
 Finally, we will decide the best two different types of models for our target. 
 
@@ -45,8 +45,14 @@ Similarly, for the ensemble model, I am also going to start to fit these models 
 ## Data Split
 
 ```{r, message = FALSE}
-# Load the library and set seed for reproducibility
+# Load the all libraries and set seed for reproducibility
 library(tidyverse)
+library(ggplot2)
+library(caret)
+library(randomForest)
+library(tree)
+library(gbm)
+
 set.seed(2)
 
 # Read data and remove the first two columns
@@ -73,10 +79,6 @@ mondayTest <- monday[test, ]
 ### Response Variable 
 
 ```{r, message = FALSE}
-# Load libraries and set the seed
-library(ggplot2)
-set.seed(2)
-
 # Basic summary of the 'monday' data
 summary(mondayTrain)
 
@@ -159,8 +161,8 @@ Use *shares* to create the binary variable : diving the shares into two groups
 mondayTrain$shares[mondayTrain$shares <= 1400] <- 0
 mondayTrain$shares[mondayTrain$shares > 1400] <- 1
 
-mondayTrain$shares <- factor(mondayTrain$shares, 
-                          levels = c(0, 1))
+mondayTrain$shares <- as.factor(mondayTrain$shares)
+  
 # GLM model 1
 glmFit.1 <- glm(shares~. , data = mondayTrain, family = 'binomial')
 summary(glmFit.1)
@@ -196,22 +198,52 @@ glmFit.3 <- glm(shares ~ . - n_tokens_title - n_unique_tokens -
                   max_negative_polarity - abs_title_sentiment_polarity, 
                 data = mondayTrain, family = 'binomial')
 summary(glmFit.3)
-
-
 ```
 After deleting some unnecessary predictors twice, we can see that for binary logistic regression model 3, all p-values are smaller than 0.05, which means that all predictors are statistically significant.
 
 ## Ensemble model Fit
- 
+
+For the ensemble model fit, we are going to use the R machine learning `caret` package. 
+
 ### Bagged Tree 
 
+```{r, message = FALSE}
+# Use ‘trainControl()‘ to control the computational nuances of the train method
+trctrl <- trainControl(method = 'repeatedcv', number = 5, repeats = 2)
 
+# Fit a bagged tree
+baggedTree <- train(shares ~ ., data = mondayTrain, trControl=trctrl,
+preProcess = c("center", "scale"), method = "treebag")
 
-### Random Forest
+baggedTree
+
+# Convert 'shares' in mondayTest into factors as well
+mondayTest$shares[mondayTest$shares <= 1400] <- 0
+mondayTest$shares[mondayTest$shares > 1400] <- 1
+mondayTest$shares <- as.factor(mondayTest$shares)
+
+# Predict classes for test dataset
+test_pred_baggedTree <- predict(baggedTree, newdata = mondayTest)
+
+# Accurary of the model
+confusionMatrix(test_pred_baggedTree, mondayTest$shares)
+```
 
 ### Boosted Tree
 
+```{r, message = FALSE}
+# Fit a boosted tree
+boostTree <- train(shares ~ ., data = mondayTrain, distribution = "bernoulli",
+                   method = "gbm", verbose = FALSE, trControl=trctrl)
 
-## Model Selection
+# Predict classes for test dataset
+test_pred_boostTree <- predict(boostTree, newdata = mondayTest)
+
+# Accurary of the model
+confusionMatrix(test_pred_boostTree, mondayTest$shares)
+
+```
+
+## Models Selection
 
 # Conclusions

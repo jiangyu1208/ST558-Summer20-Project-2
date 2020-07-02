@@ -73,8 +73,14 @@ model can be chosen.
 ## Data Split
 
 ``` r
-# Load the library and set seed for reproducibility
+# Load the all libraries and set seed for reproducibility
 library(tidyverse)
+library(ggplot2)
+library(caret)
+library(randomForest)
+library(tree)
+library(gbm)
+
 set.seed(2)
 
 # Read data and remove the first two columns
@@ -105,10 +111,6 @@ mondayTest <- monday[test, ]
 ### Response Variable
 
 ``` r
-# Load libraries and set the seed
-library(ggplot2)
-set.seed(2)
-
 # Basic summary of the 'monday' data
 summary(mondayTrain)
 ```
@@ -492,8 +494,8 @@ delete some predictors whose p-value is larger than 0.05.
 mondayTrain$shares[mondayTrain$shares <= 1400] <- 0
 mondayTrain$shares[mondayTrain$shares > 1400] <- 1
 
-mondayTrain$shares <- factor(mondayTrain$shares, 
-                          levels = c(0, 1))
+mondayTrain$shares <- as.factor(mondayTrain$shares)
+  
 # GLM model 1
 glmFit.1 <- glm(shares~. , data = mondayTrain, family = 'binomial')
 summary(glmFit.1)
@@ -721,17 +723,124 @@ summary(glmFit.3)
     ## Number of Fisher Scoring iterations: 4
 
 After deleting some unnecessary predictors twice, we can see that for
-binary logistic regression model 2, all p-values are smaller than 0.05,
+binary logistic regression model 3, all p-values are smaller than 0.05,
 which means that all predictors are statistically significant.
 
 ## Ensemble model Fit
 
+For the ensemble model fit, we are going to use the R machine learning
+`caret` package.
+
 ### Bagged Tree
 
-### Random Forest
+``` r
+# Use ‘trainControl()‘ to control the computational nuances of the train method
+trctrl <- trainControl(method = 'repeatedcv', number = 5, repeats = 2)
+
+# Fit a bagged tree
+baggedTree <- train(shares ~ ., data = mondayTrain, trControl=trctrl,
+preProcess = c("center", "scale"), method = "treebag")
+
+baggedTree
+```
+
+    ## Bagged CART 
+    ## 
+    ## 27750 samples
+    ##    52 predictor
+    ##     2 classes: '0', '1' 
+    ## 
+    ## Pre-processing: centered (52), scaled (52) 
+    ## Resampling: Cross-Validated (5 fold, repeated 2 times) 
+    ## Summary of sample sizes: 22200, 22201, 22199, 22200, 22200, 22200, ... 
+    ## Resampling results:
+    ## 
+    ##   Accuracy   Kappa    
+    ##   0.6414416  0.2827514
+
+``` r
+# Convert 'shares' in mondayTest into factors as well
+mondayTest$shares[mondayTest$shares <= 1400] <- 0
+mondayTest$shares[mondayTest$shares > 1400] <- 1
+mondayTest$shares <- as.factor(mondayTest$shares)
+
+# Predict classes for test dataset
+test_pred_baggedTree <- predict(baggedTree, newdata = mondayTest)
+
+# Accurary of the model
+confusionMatrix(test_pred_baggedTree, mondayTest$shares)
+```
+
+    ## Confusion Matrix and Statistics
+    ## 
+    ##           Reference
+    ## Prediction    0    1
+    ##          0 3944 2110
+    ##          1 2116 3724
+    ##                                          
+    ##                Accuracy : 0.6447         
+    ##                  95% CI : (0.636, 0.6533)
+    ##     No Information Rate : 0.5095         
+    ##     P-Value [Acc > NIR] : <2e-16         
+    ##                                          
+    ##                   Kappa : 0.2891         
+    ##                                          
+    ##  Mcnemar's Test P-Value : 0.9387         
+    ##                                          
+    ##             Sensitivity : 0.6508         
+    ##             Specificity : 0.6383         
+    ##          Pos Pred Value : 0.6515         
+    ##          Neg Pred Value : 0.6377         
+    ##              Prevalence : 0.5095         
+    ##          Detection Rate : 0.3316         
+    ##    Detection Prevalence : 0.5090         
+    ##       Balanced Accuracy : 0.6446         
+    ##                                          
+    ##        'Positive' Class : 0              
+    ## 
 
 ### Boosted Tree
 
-## Model Selection
+``` r
+# Fit a boosted tree
+boostTree <- train(shares ~ ., data = mondayTrain, distribution = "bernoulli",
+                   method = "gbm", verbose = FALSE, trControl=trctrl)
+
+# Predict classes for test dataset
+test_pred_boostTree <- predict(boostTree, newdata = mondayTest)
+
+# Accurary of the model
+confusionMatrix(test_pred_boostTree, mondayTest$shares)
+```
+
+    ## Confusion Matrix and Statistics
+    ## 
+    ##           Reference
+    ## Prediction    0    1
+    ##          0 4034 1969
+    ##          1 2026 3865
+    ##                                           
+    ##                Accuracy : 0.6641          
+    ##                  95% CI : (0.6555, 0.6726)
+    ##     No Information Rate : 0.5095          
+    ##     P-Value [Acc > NIR] : <2e-16          
+    ##                                           
+    ##                   Kappa : 0.3281          
+    ##                                           
+    ##  Mcnemar's Test P-Value : 0.3756          
+    ##                                           
+    ##             Sensitivity : 0.6657          
+    ##             Specificity : 0.6625          
+    ##          Pos Pred Value : 0.6720          
+    ##          Neg Pred Value : 0.6561          
+    ##              Prevalence : 0.5095          
+    ##          Detection Rate : 0.3392          
+    ##    Detection Prevalence : 0.5047          
+    ##       Balanced Accuracy : 0.6641          
+    ##                                           
+    ##        'Positive' Class : 0               
+    ## 
+
+## Models Selection
 
 # Conclusions

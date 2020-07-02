@@ -48,8 +48,8 @@ order to formulate a classification problem.
 We are going to use multiple linear regression for the first task and
 binary logistic regression for the second one.
 
-For the ensemble models, we will fit the three different models(bagged
-trees, random forests, or boosted trees) and choose the best one after
+For the ensemble models, we will also fit the two different
+models(bagged trees and boosted trees) and choose the best one after
 comparing the misclassification rate.
 
 Finally, we will decide the best two different types of models for our
@@ -726,6 +726,31 @@ After deleting some unnecessary predictors twice, we can see that for
 binary logistic regression model 3, all p-values are smaller than 0.05,
 which means that all predictors are statistically significant.
 
+### Linear Regression Model Comparsion
+
+We are going to choose a better linear model from the multiple linear
+model 3 and the binary logistic regression model 3 with comparing the
+values of AIC and BIC respectively.
+
+``` r
+AIC(fit.3, glmFit.3)
+```
+
+    ##          df      AIC
+    ## fit.3    28 71628.88
+    ## glmFit.3 25 35155.55
+
+``` r
+BIC(fit.3, glmFit.3)
+```
+
+    ##          df      BIC
+    ## fit.3    28 71859.35
+    ## glmFit.3 25 35361.33
+
+Since the binary logistic regression model 3 has much smaller AIC and
+BIC values, we can choose the binary logistic regression model 3.
+
 ## Ensemble model Fit
 
 For the ensemble model fit, we are going to use the R machine learning
@@ -841,6 +866,51 @@ confusionMatrix(test_pred_boostTree, mondayTest$shares)
     ##        'Positive' Class : 0               
     ## 
 
-## Models Selection
+### Ensemble model Model Comparsion
+
+We are going to choose a better ensemble model after comparing the
+misclassification rate.
+
+``` r
+baggedTbl <- table(data.frame(pred = predict(baggedTree, mondayTest), true = mondayTest$shares))
+
+boostTbl <- table(data.frame(pred = predict(boostTree, mondayTest), true = mondayTest$shares))
+
+#misclassificatoon rate
+1-c(bag = sum(diag(baggedTbl)/sum(baggedTbl)),
+    boost = sum(diag(boostTbl)/sum(boostTbl)))
+```
+
+    ##       bag     boost 
+    ## 0.3553052 0.3358836
+
+Since the boosted trees model with a smaller misclassification rate
+0.336 and a larger accuracy rate 0.665 than the bagged trees model, we
+can choose the boosted trees model.
 
 # Conclusions
+
+For the linear regression model, the binary logistic model 3 is the best
+one after comparing AIC and BIC values while all variables are
+statistically significant.
+
+For the chosen model, the binary logistic model 3, we can see that some
+variables whose coefficients are positive need to be increased, like
+*n\_tokens\_content, num\_hrefs, num\_keywords, data\_channel\_is\_bus,
+data\_channel\_is\_socmed, data\_channel\_is\_tech, kw\_min\_min,
+kw\_max\_min, kw\_avg\_avg, is\_weekend, globabl\_subjectivity,
+title\_subjectivity, title\_sentiment\_polarity and
+abs\_title\_subjectivity* while the rest variables whose coefficients
+are negative needs to be decreased, like *num\_self\_hrefs,
+average\_token\_length, data\_channel\_is\_entertainment, kw\_avg\_min,
+kw\_min\_max, kw\_max\_max, kw\_avg\_max, kw\_min\_avg, kw\_max\_avg,
+and min\_positive\_polarity*.
+
+For the ensemble model, the boosted tree model is the best one. This
+gives highest accuracy of 66.5%. • The data set on a whole gives average
+accuracy of 65.5% which shows that the dataset is inconsistent
+indicating that irrelevant information has been used.
+
+Therefore, this dataset is insufficient to predict the number of shares
+with high levels of accuracy for a news article considering its
+popularity and thus more data needs to be collected.

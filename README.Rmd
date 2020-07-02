@@ -201,6 +201,19 @@ summary(glmFit.3)
 ```
 After deleting some unnecessary predictors twice, we can see that for binary logistic regression model 3, all p-values are smaller than 0.05, which means that all predictors are statistically significant.
 
+### Linear Regression Model Comparsion
+
+We are going to choose a better linear model from the multiple linear model 3 and the binary logistic regression model 3 with comparing the values of AIC and BIC respectively.
+
+```{r}
+AIC(fit.3, glmFit.3)
+BIC(fit.3, glmFit.3)
+
+```
+
+Since the binary logistic regression model 3 has much smaller AIC and BIC
+values, we can choose the binary logistic regression model 3.
+
 ## Ensemble model Fit
 
 For the ensemble model fit, we are going to use the R machine learning `caret` package. 
@@ -243,7 +256,29 @@ test_pred_boostTree <- predict(boostTree, newdata = mondayTest)
 confusionMatrix(test_pred_boostTree, mondayTest$shares)
 
 ```
+### Ensemble model Model Comparsion
 
-## Models Selection
+We are going to choose a better ensemble model after comparing the misclassification rate.
+
+```{r}
+
+baggedTbl <- table(data.frame(pred = predict(baggedTree, mondayTest), true = mondayTest$shares))
+
+boostTbl <- table(data.frame(pred = predict(boostTree, mondayTest), true = mondayTest$shares))
+
+#misclassificatoon rate
+1-c(bag = sum(diag(baggedTbl)/sum(baggedTbl)),
+    boost = sum(diag(boostTbl)/sum(boostTbl)))
+```
+
+Since the boosted trees model with a smaller misclassification rate 0.336 and a larger accuracy rate 0.665 than the bagged trees model, we can choose the boosted trees model.
 
 # Conclusions
+
+For the linear regression model, the binary logistic model 3 is the best one after comparing AIC and BIC values while all variables are statistically significant. 
+
+For the chosen model, the binary logistic model 3, we can see that some variables whose coefficients are positive need to be increased, like *n_tokens_content, num_hrefs, num_keywords, data_channel_is_bus, data_channel_is_socmed, data_channel_is_tech, kw_min_min, kw_max_min, kw_avg_avg, is_weekend, globabl_subjectivity, title_subjectivity, title_sentiment_polarity and abs_title_subjectivity* while the rest variables whose coefficients are negative needs to be decreased, like *num_self_hrefs, average_token_length, data_channel_is_entertainment, kw_avg_min, kw_min_max, kw_max_max, kw_avg_max, kw_min_avg, kw_max_avg, and min_positive_polarity*. 
+
+For the ensemble model, the boosted tree model is the best one. This gives highest accuracy of 66.5%. The data set on a whole gives average accuracy of 65.5% which shows that the dataset is inconsistent indicating that irrelevant information has been used.
+
+Therefore, this dataset is insufficient to predict the number of shares with high levels of accuracy for a news article considering its popularity and thus more data needs to be collected.

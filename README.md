@@ -658,6 +658,22 @@ Since the boosted trees model with a smaller misclassification rate
 0.336 and a larger accuracy rate 0.665 than the bagged trees model, we
 can choose the boosted trees model.
 
+# Weekday Analysis
+
+The analysis for [Monday is available here](weekday_is_monday.md).
+
+The analysis for [Tuesday is available here](weekday_is_tuesday.md).
+
+The analysis for [Wednesday is available here](weekday_is_wednesday.md).
+
+The analysis for [Thursday is available here](weekday_is_thursday.md).
+
+The analysis for [Friday is available here](weekday_is_friday.md).
+
+The analysis for [Saturday is available here](weekday_is_saturday.md).
+
+The analysis for [Sunday is available here](weekday_is_sunday.md).
+
 # Conclusions
 
 For the linear regression model, the binary logistic model is better

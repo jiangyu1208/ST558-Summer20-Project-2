@@ -54,7 +54,6 @@ library(caret)
 library(randomForest)
 library(tree)
 library(gbm)
-library(rmarkdown)
 
 set.seed(2)
 
@@ -228,10 +227,6 @@ boostTbl <- table(data.frame(pred = predict(boostTree, TestDat), true = TestDat$
 ```
 
 Since the boosted trees model with a smaller misclassification rate 0.336 and a larger accuracy rate 0.665 than the bagged trees model, we can choose the boosted trees model.
-
-# Automation
-
-
 
 # Conclusions
 

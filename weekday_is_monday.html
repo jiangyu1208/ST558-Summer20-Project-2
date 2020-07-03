@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  padding-top: 0px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 id="st558-project-2">ST558 Project 2</h1>
+<p>Yu Jiang 7/3/2020</p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="describe-the-data">Describe the Data</h2>
+<p>Many articles have been published by Mashable over two years from seventh Jan, 2013 and this original dataset can be found <a href="https://archive.ics.uci.edu/ml/datasets/Online+News+Popularity">this website</a>.</p>
+<p>There are 61 variables in total from the dataset above: 58 predictive attributes, 2 non-predictive and 1 goal field. More details about used data will be discussed later.</p>
+<h2 id="the-purpose-of-analysis">the Purpose of Analysis</h2>
+<p>We are interested in predicting the popularity of a given article and thus we are going to treat <em>shares</em>, an index of the article popularity, as the response of models and some other variables as predictors.</p>
+<p>After fitting the linear and ensemble models respectively, we can choose the best two different types of models by comparing some numeric values, like AIC and BIC, and then we can make a conclusion about <em>shares</em>.</p>
+<h2 id="methods">Methods</h2>
+<p>First, we can slice data into two sets, a training set (70% of the data) and the test set (30% of the data) and then we are going to start the model fit.</p>
+<p>Second, we are going to consider two types of models.</p>
+<p>For the linear regression model, We will try to predict popularity in two ways. The first target is as it is recorded, as the number of times the articles is shared over the period. The second target is a binary variable which discretizes the above. Following Fernandes et al. (section 3.1), an article is considered popular if it exceeds 1400 shares. Therefore, we are going to use the threshold of 1400 shares to create two classes: if the number of shares is greater than 1400, then the article is classified as popular; if the number of shares is less than or equal to 1400, then the article is classified as unpopular in order to formulate a classification problem.</p>
+<p>We are going to use multiple linear regression for the first task and binary logistic regression for the second one.</p>
+<p>For the ensemble models, we will also fit the two different models(bagged trees and boosted trees) and choose the best one after comparing the misclassification rate.</p>
+<p>Finally, we will decide the best two different types of models for our target.</p>
+<h1 id="data-study">Data Study</h1>
+<h2 id="description-of-the-used-data">Description of the Used Data</h2>
+<p>Since we are going to predict the popularity of an article, we have chosen <em>shares</em> as the response. To start with, for the linear regression model, I am going to fit the model with some selected predictors.</p>
+<p>Similarly, for the ensemble model, I am also going to start to fit two models (bagged tree and boosted tree) with selected predictors from the train set. After comparing the misclassification rate, the best model can be chosen.</p>
+<h2 id="data-split">Data Split</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load the all libraries and set seed for reproducibility</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">library</span>(caret)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">library</span>(randomForest)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">library</span>(tree)</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="kw">library</span>(gbm)</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="kw">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co"># Read data and remove the first two columns since they are non-predictive.</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a>news_pop &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;OnlineNewsPopularity.csv&#39;</span>)[, <span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a>params<span class="op">$</span>weekday</span></code></pre></div>
+<pre><code>## [1] &quot;weekday_is_monday&quot;
+</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Just consider &#39;Monday&#39; at first </span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>dat&lt;-<span class="st"> </span>news_pop <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">!</span><span class="kw">starts_with</span>(<span class="st">&#39;weekday_is_&#39;</span>), params<span class="op">$</span>weekday)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># Check if the data has any missing values</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(dat))</span></code></pre></div>
+<pre><code>## [1] 0
+</code></pre>
+<p>Since there is no missing data for this dataset, we can slice the data into the train and the test sets, respectively.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Split the &#39;Monday&#39; data, 70% of the data for training and the rest for testing</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>train &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(dat), <span class="dt">size =</span> <span class="kw">nrow</span>(dat) <span class="op">*</span><span class="st"> </span><span class="fl">0.7</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>test &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">setdiff</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(dat), train)</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>TrainDat &lt;-<span class="st"> </span>dat[train, ]</span>
+<span id="cb5-6"><a href="#cb5-6"></a>TestDat &lt;-<span class="st"> </span>dat[test, ]</span></code></pre></div>
+<h2 id="data-summarizations">Data Summarizations</h2>
+<p>After splicing the data into two sets, we can explore the response variable, <em>shares</em> and predictors.</p>
+<h3 id="response-variable">Response Variable</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Histogram of &#39;shares&#39;</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> TrainDat, <span class="kw">aes</span>(<span class="dt">x =</span> shares)) <span class="op">+</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>()</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>Since the histogram of share is highly skewed, we can consider to use the log transformation to obtain a new histogram for shares.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>x &lt;-<span class="st"> </span><span class="kw">log</span>(TrainDat<span class="op">$</span>shares)</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> TrainDat, <span class="kw">aes</span>(x)) <span class="op">+</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&#39;Log(shares)&#39;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>After comparing these two histograms, we decide to use the log(shares) as our response for the multiple linear regression model.</p>
+<h3 id="predictor-variables">Predictor Variables</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">summary</span>(TrainDat)</span></code></pre></div>
+<pre><code>##  n_tokens_title n_tokens_content n_unique_tokens n_non_stop_words
+##  Min.   : 3.0   Min.   :   0     Min.   :  0     Min.   :   0    
+##  1st Qu.: 9.0   1st Qu.: 245     1st Qu.:  0     1st Qu.:   1    
+##  Median :10.0   Median : 408     Median :  1     Median :   1    
+##  Mean   :10.4   Mean   : 544     Mean   :  1     Mean   :   1    
+##  3rd Qu.:12.0   3rd Qu.: 716     3rd Qu.:  1     3rd Qu.:   1    
+##  Max.   :20.0   Max.   :8474     Max.   :701     Max.   :1042    
+##  n_non_stop_unique_tokens   num_hrefs   num_self_hrefs    num_imgs  
+##  Min.   :  0              Min.   :  0   Min.   :  0    Min.   :  0  
+##  1st Qu.:  1              1st Qu.:  4   1st Qu.:  1    1st Qu.:  1  
+##  Median :  1              Median :  7   Median :  3    Median :  1  
+##  Mean   :  1              Mean   : 11   Mean   :  3    Mean   :  5  
+##  3rd Qu.:  1              3rd Qu.: 13   3rd Qu.:  4    3rd Qu.:  4  
+##  Max.   :650              Max.   :304   Max.   :116    Max.   :128  
+##    num_videos average_token_length  num_keywords  data_channel_is_lifestyle
+##  Min.   : 0   Min.   :0.0          Min.   : 1.0   Min.   :0.00             
+##  1st Qu.: 0   1st Qu.:4.5          1st Qu.: 6.0   1st Qu.:0.00             
+##  Median : 0   Median :4.7          Median : 7.0   Median :0.00             
+##  Mean   : 1   Mean   :4.6          Mean   : 7.2   Mean   :0.05             
+##  3rd Qu.: 1   3rd Qu.:4.9          3rd Qu.: 9.0   3rd Qu.:0.00             
+##  Max.   :91   Max.   :8.0          Max.   :10.0   Max.   :1.00             
+##  data_channel_is_entertainment data_channel_is_bus data_channel_is_socmed
+##  Min.   :0.00                  Min.   :0.00        Min.   :0.00          
+##  1st Qu.:0.00                  1st Qu.:0.00        1st Qu.:0.00          
+##  Median :0.00                  Median :0.00        Median :0.00          
+##  Mean   :0.18                  Mean   :0.16        Mean   :0.06          
+##  3rd Qu.:0.00                  3rd Qu.:0.00        3rd Qu.:0.00          
+##  Max.   :1.00                  Max.   :1.00        Max.   :1.00          
+##  data_channel_is_tech data_channel_is_world   kw_min_min    kw_max_min    
+##  Min.   :0.00         Min.   :0.00          Min.   : -1   Min.   :     0  
+##  1st Qu.:0.00         1st Qu.:0.00          1st Qu.: -1   1st Qu.:   445  
+##  Median :0.00         Median :0.00          Median : -1   Median :   657  
+##  Mean   :0.19         Mean   :0.21          Mean   : 26   Mean   :  1158  
+##  3rd Qu.:0.00         3rd Qu.:0.00          3rd Qu.:  4   3rd Qu.:  1000  
+##  Max.   :1.00         Max.   :1.00          Max.   :377   Max.   :298400  
+##    kw_avg_min      kw_min_max       kw_max_max       kw_avg_max    
+##  Min.   :   -1   Min.   :     0   Min.   :     0   Min.   :     0  
+##  1st Qu.:  141   1st Qu.:     0   1st Qu.:843300   1st Qu.:172494  
+##  Median :  234   Median :  1400   Median :843300   Median :243933  
+##  Mean   :  313   Mean   : 13686   Mean   :751158   Mean   :258434  
+##  3rd Qu.:  356   3rd Qu.:  7900   3rd Qu.:843300   3rd Qu.:329894  
+##  Max.   :42828   Max.   :843300   Max.   :843300   Max.   :843300  
+##    kw_min_avg     kw_max_avg       kw_avg_avg    self_reference_min_shares
+##  Min.   :  -1   Min.   :     0   Min.   :    0   Min.   :     0           
+##  1st Qu.:   0   1st Qu.:  3560   1st Qu.: 2380   1st Qu.:   642           
+##  Median :1019   Median :  4355   Median : 2869   Median :  1200           
+##  Mean   :1117   Mean   :  5653   Mean   : 3135   Mean   :  4057           
+##  3rd Qu.:2061   3rd Qu.:  6015   3rd Qu.: 3600   3rd Qu.:  2700           
+##  Max.   :3613   Max.   :298400   Max.   :43568   Max.   :843300           
+##  self_reference_max_shares self_reference_avg_sharess   is_weekend  
+##  Min.   :     0            Min.   :     0             Min.   :0.00  
+##  1st Qu.:  1100            1st Qu.:   985             1st Qu.:0.00  
+##  Median :  2900            Median :  2200             Median :0.00  
+##  Mean   : 10326            Mean   :  6451             Mean   :0.13  
+##  3rd Qu.:  8100            3rd Qu.:  5200             3rd Qu.:0.00  
+##  Max.   :843300            Max.   :843300             Max.   :1.00  
+##      LDA_00         LDA_01         LDA_02         LDA_03         LDA_04    
+##  Min.   :0.00   Min.   :0.00   Min.   :0.00   Min.   :0.00   Min.   :0.00  
+##  1st Qu.:0.03   1st Qu.:0.03   1st Qu.:0.03   1st Qu.:0.03   1st Qu.:0.03  
+##  Median :0.03   Median :0.03   Median :0.04   Median :0.04   Median :0.04  
+##  Mean   :0.18   Mean   :0.14   Mean   :0.22   Mean   :0.22   Mean   :0.23  
+##  3rd Qu.:0.24   3rd Qu.:0.15   3rd Qu.:0.33   3rd Qu.:0.37   3rd Qu.:0.41  
+##  Max.   :0.92   Max.   :0.93   Max.   :0.92   Max.   :0.93   Max.   :0.93  
+##  global_subjectivity global_sentiment_polarity global_rate_positive_words
+##  Min.   :0.00        Min.   :-0.38             Min.   :0.000             
+##  1st Qu.:0.40        1st Qu.: 0.06             1st Qu.:0.028             
+##  Median :0.45        Median : 0.12             Median :0.039             
+##  Mean   :0.44        Mean   : 0.12             Mean   :0.040             
+##  3rd Qu.:0.51        3rd Qu.: 0.18             3rd Qu.:0.050             
+##  Max.   :1.00        Max.   : 0.73             Max.   :0.155             
+##  global_rate_negative_words rate_positive_words rate_negative_words
+##  Min.   :0.000              Min.   :0.00        Min.   :0.00       
+##  1st Qu.:0.010              1st Qu.:0.60        1st Qu.:0.19       
+##  Median :0.015              Median :0.71        Median :0.28       
+##  Mean   :0.017              Mean   :0.68        Mean   :0.29       
+##  3rd Qu.:0.022              3rd Qu.:0.80        3rd Qu.:0.38       
+##  Max.   :0.162              Max.   :1.00        Max.   :1.00       
+##  avg_positive_polarity min_positive_polarity max_positive_polarity
+##  Min.   :0.00          Min.   :0.00          Min.   :0.00         
+##  1st Qu.:0.31          1st Qu.:0.05          1st Qu.:0.60         
+##  Median :0.36          Median :0.10          Median :0.80         
+##  Mean   :0.35          Mean   :0.10          Mean   :0.76         
+##  3rd Qu.:0.41          3rd Qu.:0.10          3rd Qu.:1.00         
+##  Max.   :1.00          Max.   :1.00          Max.   :1.00         
+##  avg_negative_polarity min_negative_polarity max_negative_polarity
+##  Min.   :-1.00         Min.   :-1.00         Min.   :-1.00        
+##  1st Qu.:-0.33         1st Qu.:-0.70         1st Qu.:-0.12        
+##  Median :-0.25         Median :-0.50         Median :-0.10        
+##  Mean   :-0.26         Mean   :-0.52         Mean   :-0.11        
+##  3rd Qu.:-0.19         3rd Qu.:-0.30         3rd Qu.:-0.05        
+##  Max.   : 0.00         Max.   : 0.00         Max.   : 0.00        
+##  title_subjectivity title_sentiment_polarity abs_title_subjectivity
+##  Min.   :0.00       Min.   :-1.00            Min.   :0.00          
+##  1st Qu.:0.00       1st Qu.: 0.00            1st Qu.:0.17          
+##  Median :0.15       Median : 0.00            Median :0.50          
+##  Mean   :0.28       Mean   : 0.07            Mean   :0.34          
+##  3rd Qu.:0.50       3rd Qu.: 0.15            3rd Qu.:0.50          
+##  Max.   :1.00       Max.   : 1.00            Max.   :0.50          
+##  abs_title_sentiment_polarity     shares       weekday_is_monday
+##  Min.   :0.00                 Min.   :     1   Min.   :0.00     
+##  1st Qu.:0.00                 1st Qu.:   949   1st Qu.:0.00     
+##  Median :0.00                 Median :  1400   Median :0.00     
+##  Mean   :0.16                 Mean   :  3444   Mean   :0.17     
+##  3rd Qu.:0.25                 3rd Qu.:  2800   3rd Qu.:0.00     
+##  Max.   :1.00                 Max.   :690400   Max.   :1.00
+</code></pre>
+<p>From the output above, we can remove the variable <em>is_weekend</em> since it seems to be duplicating days of week; five <em>LDA</em> variables due to meaningless values and <em>kw_min_min, kw_avg_min, kw_min_avg</em> because of negative values. We can obtain a new train and a test set below.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># A new train and a test set</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>TrainDat &lt;-<span class="st"> </span>TrainDat <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">!</span><span class="kw">starts_with</span>(<span class="st">&#39;LDA_&#39;</span>), <span class="op">-</span><span class="kw">c</span>(is_weekend, kw_min_min, kw_avg_min, kw_min_avg))</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a>TestDat &lt;-<span class="st"> </span>TestDat <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">!</span><span class="kw">starts_with</span>(<span class="st">&#39;LDA_&#39;</span>), <span class="op">-</span><span class="kw">c</span>(is_weekend, kw_min_min, kw_avg_min, kw_min_avg))</span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="kw">head</span>(TrainDat)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 44
+##   n_tokens_title n_tokens_content n_unique_tokens n_non_stop_words
+##            &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
+## 1              7              802           0.502             1.00
+## 2             14             1193           0.411             1.00
+## 3             11              147           0.760             1.00
+## 4              9              206           0.629             1.00
+## 5              8               60           0.814             1.00
+## 6              8               79           0.861             1.00
+## # ... with 40 more variables: n_non_stop_unique_tokens &lt;dbl&gt;, num_hrefs &lt;dbl&gt;,
+## #   num_self_hrefs &lt;dbl&gt;, num_imgs &lt;dbl&gt;, num_videos &lt;dbl&gt;,
+## #   average_token_length &lt;dbl&gt;, num_keywords &lt;dbl&gt;,
+## #   data_channel_is_lifestyle &lt;dbl&gt;, data_channel_is_entertainment &lt;dbl&gt;,
+## #   data_channel_is_bus &lt;dbl&gt;, data_channel_is_socmed &lt;dbl&gt;,
+## #   data_channel_is_tech &lt;dbl&gt;, data_channel_is_world &lt;dbl&gt;, kw_max_min &lt;dbl&gt;,
+## #   kw_min_max &lt;dbl&gt;, kw_max_max &lt;dbl&gt;, kw_avg_max &lt;dbl&gt;, kw_max_avg &lt;dbl&gt;,
+## #   kw_avg_avg &lt;dbl&gt;, self_reference_min_shares &lt;dbl&gt;,
+## #   self_reference_max_shares &lt;dbl&gt;, self_reference_avg_sharess &lt;dbl&gt;,
+## #   global_subjectivity &lt;dbl&gt;, global_sentiment_polarity &lt;dbl&gt;,
+## #   global_rate_positive_words &lt;dbl&gt;, global_rate_negative_words &lt;dbl&gt;,
+## #   rate_positive_words &lt;dbl&gt;, rate_negative_words &lt;dbl&gt;,
+## #   avg_positive_polarity &lt;dbl&gt;, min_positive_polarity &lt;dbl&gt;,
+## #   max_positive_polarity &lt;dbl&gt;, avg_negative_polarity &lt;dbl&gt;,
+## #   min_negative_polarity &lt;dbl&gt;, max_negative_polarity &lt;dbl&gt;,
+## #   title_subjectivity &lt;dbl&gt;, title_sentiment_polarity &lt;dbl&gt;,
+## #   abs_title_subjectivity &lt;dbl&gt;, abs_title_sentiment_polarity &lt;dbl&gt;,
+## #   shares &lt;dbl&gt;, weekday_is_monday &lt;dbl&gt;
+</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">head</span>(TestDat)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 44
+##   n_tokens_title n_tokens_content n_unique_tokens n_non_stop_words
+##            &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
+## 1              9              531           0.504             1.00
+## 2              8              960           0.418             1.00
+## 3             12              989           0.434             1.00
+## 4             11               97           0.670             1.00
+## 5              8             1118           0.512             1.00
+## 6              8              397           0.625             1.00
+## # ... with 40 more variables: n_non_stop_unique_tokens &lt;dbl&gt;, num_hrefs &lt;dbl&gt;,
+## #   num_self_hrefs &lt;dbl&gt;, num_imgs &lt;dbl&gt;, num_videos &lt;dbl&gt;,
+## #   average_token_length &lt;dbl&gt;, num_keywords &lt;dbl&gt;,
+## #   data_channel_is_lifestyle &lt;dbl&gt;, data_channel_is_entertainment &lt;dbl&gt;,
+## #   data_channel_is_bus &lt;dbl&gt;, data_channel_is_socmed &lt;dbl&gt;,
+## #   data_channel_is_tech &lt;dbl&gt;, data_channel_is_world &lt;dbl&gt;, kw_max_min &lt;dbl&gt;,
+## #   kw_min_max &lt;dbl&gt;, kw_max_max &lt;dbl&gt;, kw_avg_max &lt;dbl&gt;, kw_max_avg &lt;dbl&gt;,
+## #   kw_avg_avg &lt;dbl&gt;, self_reference_min_shares &lt;dbl&gt;,
+## #   self_reference_max_shares &lt;dbl&gt;, self_reference_avg_sharess &lt;dbl&gt;,
+## #   global_subjectivity &lt;dbl&gt;, global_sentiment_polarity &lt;dbl&gt;,
+## #   global_rate_positive_words &lt;dbl&gt;, global_rate_negative_words &lt;dbl&gt;,
+## #   rate_positive_words &lt;dbl&gt;, rate_negative_words &lt;dbl&gt;,
+## #   avg_positive_polarity &lt;dbl&gt;, min_positive_polarity &lt;dbl&gt;,
+## #   max_positive_polarity &lt;dbl&gt;, avg_negative_polarity &lt;dbl&gt;,
+## #   min_negative_polarity &lt;dbl&gt;, max_negative_polarity &lt;dbl&gt;,
+## #   title_subjectivity &lt;dbl&gt;, title_sentiment_polarity &lt;dbl&gt;,
+## #   abs_title_subjectivity &lt;dbl&gt;, abs_title_sentiment_polarity &lt;dbl&gt;,
+## #   shares &lt;dbl&gt;, weekday_is_monday &lt;dbl&gt;
+</code></pre>
+<h1 id="modeling">Modeling</h1>
+<h2 id="linear-regression-fit">Linear Regression Fit</h2>
+<h3 id="multiple-linear-regression">Multiple Linear Regression</h3>
+<p>We are going to fit the multiple linear regression with selected predictors.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Multiple linear model</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(shares) <span class="op">~</span><span class="st"> </span>. , <span class="dt">data =</span> TrainDat)</span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="kw">summary</span>(fit)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = log(shares) ~ ., data = TrainDat)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -8.108 -0.556 -0.165  0.399  5.653 
+## 
+## Coefficients:
+##                                Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                    6.74e+00   6.14e-02  109.74  &lt; 2e-16 ***
+## n_tokens_title                 5.73e-03   2.62e-03    2.18  0.02908 *  
+## n_tokens_content               6.48e-05   2.07e-05    3.13  0.00172 ** 
+## n_unique_tokens                2.25e-01   1.75e-01    1.29  0.19839    
+## n_non_stop_words              -1.64e-02   5.92e-02   -0.28  0.78124    
+## n_non_stop_unique_tokens      -2.14e-01   1.49e-01   -1.44  0.15013    
+## num_hrefs                      4.34e-03   6.06e-04    7.16  8.5e-13 ***
+## num_self_hrefs                -8.94e-03   1.65e-03   -5.41  6.3e-08 ***
+## num_imgs                       1.94e-03   8.14e-04    2.39  0.01707 *  
+## num_videos                     1.08e-03   1.42e-03    0.76  0.44539    
+## average_token_length          -9.49e-02   2.17e-02   -4.37  1.2e-05 ***
+## num_keywords                   2.40e-02   3.29e-03    7.29  3.2e-13 ***
+## data_channel_is_lifestyle     -4.41e-02   2.96e-02   -1.49  0.13641    
+## data_channel_is_entertainment -2.26e-01   2.20e-02  -10.26  &lt; 2e-16 ***
+## data_channel_is_bus            9.38e-04   2.37e-02    0.04  0.96843    
+## data_channel_is_socmed         2.47e-01   2.92e-02    8.48  &lt; 2e-16 ***
+## data_channel_is_tech           1.39e-01   2.35e-02    5.91  3.6e-09 ***
+## data_channel_is_world         -1.46e-01   2.49e-02   -5.85  5.0e-09 ***
+## kw_max_min                    -3.38e-06   1.71e-06   -1.98  0.04767 *  
+## kw_min_max                    -3.89e-07   1.05e-07   -3.70  0.00021 ***
+## kw_max_max                    -1.69e-07   3.47e-08   -4.85  1.2e-06 ***
+## kw_avg_max                    -3.16e-07   7.34e-08   -4.31  1.6e-05 ***
+## kw_max_avg                    -3.43e-05   2.00e-06  -17.14  &lt; 2e-16 ***
+## kw_avg_avg                     2.87e-04   9.93e-06   28.93  &lt; 2e-16 ***
+## self_reference_min_shares      1.10e-06   6.81e-07    1.61  0.10642    
+## self_reference_max_shares      2.88e-07   3.72e-07    0.77  0.43958    
+## self_reference_avg_sharess     6.37e-07   9.47e-07    0.67  0.50127    
+## global_subjectivity            4.06e-01   7.76e-02    5.24  1.6e-07 ***
+## global_sentiment_polarity     -2.46e-01   1.54e-01   -1.60  0.10909    
+## global_rate_positive_words    -4.51e-01   6.61e-01   -0.68  0.49534    
+## global_rate_negative_words    -6.86e-01   1.28e+00   -0.54  0.59073    
+## rate_positive_words            2.68e-01   1.29e-01    2.08  0.03785 *  
+## rate_negative_words            2.07e-01   1.47e-01    1.42  0.15705    
+## avg_positive_polarity          1.02e-01   1.26e-01    0.81  0.41651    
+## min_positive_polarity         -4.56e-01   1.04e-01   -4.39  1.1e-05 ***
+## max_positive_polarity         -1.80e-02   3.95e-02   -0.46  0.64908    
+## avg_negative_polarity         -2.13e-01   1.15e-01   -1.85  0.06440 .  
+## min_negative_polarity          3.73e-02   4.20e-02    0.89  0.37432    
+## max_negative_polarity         -3.39e-02   9.59e-02   -0.35  0.72390    
+## title_subjectivity             5.73e-02   2.51e-02    2.28  0.02271 *  
+## title_sentiment_polarity       9.19e-02   2.29e-02    4.01  6.1e-05 ***
+## abs_title_subjectivity         1.17e-01   3.34e-02    3.51  0.00045 ***
+## abs_title_sentiment_polarity   7.31e-03   3.62e-02    0.20  0.83978    
+## weekday_is_monday              2.60e-03   1.43e-02    0.18  0.85545    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.88 on 27706 degrees of freedom
+## Multiple R-squared:  0.112,  Adjusted R-squared:  0.11 
+## F-statistic: 81.1 on 43 and 27706 DF,  p-value: &lt;2e-16
+</code></pre>
+<h3 id="binary-logistic-regression">Binary Logistic Regression</h3>
+<p>Use <em>shares</em> to create the binary variable : diving the shares into two groups (&lt;1400 and &gt;= 1400) and fit the model with the selected predictors as well.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Convert &#39;shares&#39; into factor: &lt;= 1400: unpopular, &gt; 1400: popular</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>TrainDat<span class="op">$</span>shares[TrainDat<span class="op">$</span>shares <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1400</span>] &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>TrainDat<span class="op">$</span>shares[TrainDat<span class="op">$</span>shares <span class="op">&gt;</span><span class="st"> </span><span class="dv">1400</span>] &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a></span>
+<span id="cb16-5"><a href="#cb16-5"></a>TrainDat<span class="op">$</span>shares &lt;-<span class="st"> </span><span class="kw">as.factor</span>(TrainDat<span class="op">$</span>shares)</span>
+<span id="cb16-6"><a href="#cb16-6"></a>  </span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co"># GLM model</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a>glmFit &lt;-<span class="st"> </span><span class="kw">glm</span>(shares<span class="op">~</span>. , <span class="dt">data =</span> TrainDat, <span class="dt">family =</span> <span class="st">&#39;binomial&#39;</span>)</span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="kw">summary</span>(glmFit)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = shares ~ ., family = &quot;binomial&quot;, data = TrainDat)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -4.380  -1.048  -0.674   1.078   1.904  
+## 
+## Coefficients:
+##                                Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)                   -1.42e+00   1.48e-01   -9.60  &lt; 2e-16 ***
+## n_tokens_title                -3.27e-03   6.26e-03   -0.52  0.60175    
+## n_tokens_content               1.81e-04   5.20e-05    3.49  0.00048 ***
+## n_unique_tokens               -7.81e-02   4.23e-01   -0.18  0.85342    
+## n_non_stop_words               4.06e-01   1.45e-01    2.79  0.00522 ** 
+## n_non_stop_unique_tokens      -5.54e-01   3.57e-01   -1.55  0.12077    
+## num_hrefs                      9.06e-03   1.55e-03    5.83  5.7e-09 ***
+## num_self_hrefs                -2.13e-02   3.98e-03   -5.35  8.8e-08 ***
+## num_imgs                      -1.40e-04   1.97e-03   -0.07  0.94335    
+## num_videos                    -2.21e-03   3.43e-03   -0.65  0.51883    
+## average_token_length          -1.08e-01   5.18e-02   -2.08  0.03758 *  
+## num_keywords                   6.30e-02   7.90e-03    7.97  1.6e-15 ***
+## data_channel_is_lifestyle      1.30e-01   7.06e-02    1.84  0.06602 .  
+## data_channel_is_entertainment -4.11e-01   5.24e-02   -7.85  4.0e-15 ***
+## data_channel_is_bus            2.77e-01   5.66e-02    4.89  9.8e-07 ***
+## data_channel_is_socmed         1.01e+00   7.33e-02   13.73  &lt; 2e-16 ***
+## data_channel_is_tech           6.45e-01   5.63e-02   11.46  &lt; 2e-16 ***
+## data_channel_is_world         -1.71e-01   5.96e-02   -2.87  0.00405 ** 
+## kw_max_min                    -1.40e-06   5.07e-06   -0.28  0.78291    
+## kw_min_max                    -8.19e-07   2.48e-07   -3.30  0.00096 ***
+## kw_max_max                    -7.42e-07   8.29e-08   -8.95  &lt; 2e-16 ***
+## kw_avg_max                    -6.27e-07   1.76e-07   -3.55  0.00038 ***
+## kw_max_avg                    -8.25e-05   5.32e-06  -15.50  &lt; 2e-16 ***
+## kw_avg_avg                     6.41e-04   2.58e-05   24.87  &lt; 2e-16 ***
+## self_reference_min_shares      3.18e-06   2.02e-06    1.58  0.11495    
+## self_reference_max_shares      8.71e-07   9.74e-07    0.89  0.37119    
+## self_reference_avg_sharess     7.60e-07   2.49e-06    0.31  0.76029    
+## global_subjectivity            8.26e-01   1.86e-01    4.44  8.9e-06 ***
+## global_sentiment_polarity     -3.86e-01   3.68e-01   -1.05  0.29450    
+## global_rate_positive_words    -9.89e-01   1.58e+00   -0.63  0.53127    
+## global_rate_negative_words     2.25e+00   3.08e+00    0.73  0.46547    
+## rate_positive_words            1.94e-01   3.09e-01    0.63  0.52964    
+## rate_negative_words           -1.53e-01   3.52e-01   -0.44  0.66285    
+## avg_positive_polarity         -6.13e-02   3.01e-01   -0.20  0.83860    
+## min_positive_polarity         -6.54e-01   2.49e-01   -2.63  0.00861 ** 
+## max_positive_polarity         -1.66e-02   9.43e-02   -0.18  0.86040    
+## avg_negative_polarity         -1.06e-01   2.76e-01   -0.38  0.70144    
+## min_negative_polarity          8.47e-02   1.01e-01    0.84  0.40149    
+## max_negative_polarity         -2.31e-01   2.30e-01   -1.01  0.31455    
+## title_subjectivity             1.50e-01   6.04e-02    2.49  0.01294 *  
+## title_sentiment_polarity       2.01e-01   5.52e-02    3.64  0.00027 ***
+## abs_title_subjectivity         1.85e-01   8.02e-02    2.31  0.02107 *  
+## abs_title_sentiment_polarity  -7.41e-02   8.70e-02   -0.85  0.39464    
+## weekday_is_monday             -6.27e-02   3.41e-02   -1.84  0.06562 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 38467  on 27749  degrees of freedom
+## Residual deviance: 35510  on 27706  degrees of freedom
+## AIC: 35598
+## 
+## Number of Fisher Scoring iterations: 7
+</code></pre>
+<h3 id="linear-regression-model-comparsion">Linear Regression Model Comparsion</h3>
+<p>We are going to choose a better linear model from the multiple linear model and the binary logistic regression model with comparing the values of AIC and BIC respectively.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">AIC</span>(fit, glmFit)</span></code></pre></div>
+<pre><code>##        df   AIC
+## fit    45 71926
+## glmFit 44 35598
+</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">BIC</span>(fit, glmFit)</span></code></pre></div>
+<pre><code>##        df   BIC
+## fit    45 72297
+## glmFit 44 35960
+</code></pre>
+<p>Since the binary logistic regression model has much smaller AIC and BIC values, we can choose the binary logistic regression model.</p>
+<h2 id="ensemble-model-fit">Ensemble model Fit</h2>
+<p>For the ensemble model fit, we are going to use the R machine learning <code>caret</code> package.</p>
+<h3 id="bagged-tree">Bagged Tree</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Use ‘trainControl()‘ to control the computational nuances of the train method</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>trctrl &lt;-<span class="st"> </span><span class="kw">trainControl</span>(<span class="dt">method =</span> <span class="st">&#39;repeatedcv&#39;</span>, <span class="dt">number =</span> <span class="dv">5</span>, <span class="dt">repeats =</span> <span class="dv">2</span>)</span>
+<span id="cb22-3"><a href="#cb22-3"></a></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="co"># Fit a bagged tree</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>baggedTree &lt;-<span class="st"> </span><span class="kw">train</span>(shares <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> TrainDat, <span class="dt">trControl=</span>trctrl,</span>
+<span id="cb22-6"><a href="#cb22-6"></a><span class="dt">preProcess =</span> <span class="kw">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;scale&quot;</span>), <span class="dt">method =</span> <span class="st">&quot;treebag&quot;</span>)</span>
+<span id="cb22-7"><a href="#cb22-7"></a></span>
+<span id="cb22-8"><a href="#cb22-8"></a>baggedTree</span></code></pre></div>
+<pre><code>## Bagged CART 
+## 
+## 27750 samples
+##    43 predictor
+##     2 classes: &#39;0&#39;, &#39;1&#39; 
+## 
+## Pre-processing: centered (43), scaled (43) 
+## Resampling: Cross-Validated (5 fold, repeated 2 times) 
+## Summary of sample sizes: 22200, 22201, 22199, 22200, 22200, 22200, ... 
+## Resampling results:
+## 
+##   Accuracy  Kappa
+##   0.63      0.26
+</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Convert &#39;shares&#39; in mondayTest into factors as well</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>TestDat<span class="op">$</span>shares[TestDat<span class="op">$</span>shares <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1400</span>] &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a>TestDat<span class="op">$</span>shares[TestDat<span class="op">$</span>shares <span class="op">&gt;</span><span class="st"> </span><span class="dv">1400</span>] &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>TestDat<span class="op">$</span>shares &lt;-<span class="st"> </span><span class="kw">as.factor</span>(TestDat<span class="op">$</span>shares)</span>
+<span id="cb24-5"><a href="#cb24-5"></a></span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="co"># Predict classes for test dataset</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a>test_pred_baggedTree &lt;-<span class="st"> </span><span class="kw">predict</span>(baggedTree, <span class="dt">newdata =</span> TestDat)</span>
+<span id="cb24-8"><a href="#cb24-8"></a></span>
+<span id="cb24-9"><a href="#cb24-9"></a><span class="co"># Accurary of the model</span></span>
+<span id="cb24-10"><a href="#cb24-10"></a><span class="kw">confusionMatrix</span>(test_pred_baggedTree, TestDat<span class="op">$</span>shares)</span></code></pre></div>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    0    1
+##          0 3838 2143
+##          1 2222 3691
+##                                         
+##                Accuracy : 0.633         
+##                  95% CI : (0.624, 0.642)
+##     No Information Rate : 0.51          
+##     P-Value [Acc &gt; NIR] : &lt;2e-16        
+##                                         
+##                   Kappa : 0.266         
+##                                         
+##  Mcnemar&#39;s Test P-Value : 0.238         
+##                                         
+##             Sensitivity : 0.633         
+##             Specificity : 0.633         
+##          Pos Pred Value : 0.642         
+##          Neg Pred Value : 0.624         
+##              Prevalence : 0.510         
+##          Detection Rate : 0.323         
+##    Detection Prevalence : 0.503         
+##       Balanced Accuracy : 0.633         
+##                                         
+##        &#39;Positive&#39; Class : 0             
+## 
+</code></pre>
+<h3 id="boosted-tree">Boosted Tree</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Fit a boosted tree</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>boostTree &lt;-<span class="st"> </span><span class="kw">train</span>(shares <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> TrainDat, <span class="dt">distribution =</span> <span class="st">&quot;bernoulli&quot;</span>,</span>
+<span id="cb26-3"><a href="#cb26-3"></a>                   <span class="dt">method =</span> <span class="st">&quot;gbm&quot;</span>, <span class="dt">verbose =</span> <span class="ot">FALSE</span>, <span class="dt">trControl=</span>trctrl)</span>
+<span id="cb26-4"><a href="#cb26-4"></a></span>
+<span id="cb26-5"><a href="#cb26-5"></a><span class="co"># Predict classes for test dataset</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a>test_pred_boostTree &lt;-<span class="st"> </span><span class="kw">predict</span>(boostTree, <span class="dt">newdata =</span> TestDat)</span>
+<span id="cb26-7"><a href="#cb26-7"></a></span>
+<span id="cb26-8"><a href="#cb26-8"></a><span class="co"># Accurary of the model</span></span>
+<span id="cb26-9"><a href="#cb26-9"></a><span class="kw">confusionMatrix</span>(test_pred_boostTree, TestDat<span class="op">$</span>shares)</span></code></pre></div>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    0    1
+##          0 3948 1990
+##          1 2112 3844
+##                                         
+##                Accuracy : 0.655         
+##                  95% CI : (0.646, 0.664)
+##     No Information Rate : 0.51          
+##     P-Value [Acc &gt; NIR] : &lt;2e-16        
+##                                         
+##                   Kappa : 0.31          
+##                                         
+##  Mcnemar&#39;s Test P-Value : 0.0589        
+##                                         
+##             Sensitivity : 0.651         
+##             Specificity : 0.659         
+##          Pos Pred Value : 0.665         
+##          Neg Pred Value : 0.645         
+##              Prevalence : 0.510         
+##          Detection Rate : 0.332         
+##    Detection Prevalence : 0.499         
+##       Balanced Accuracy : 0.655         
+##                                         
+##        &#39;Positive&#39; Class : 0             
+## 
+</code></pre>
+<h3 id="ensemble-model-model-comparsion">Ensemble model Model Comparsion</h3>
+<p>We are going to choose a better ensemble model after comparing the misclassification rate.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>baggedTbl &lt;-<span class="st"> </span><span class="kw">table</span>(<span class="kw">data.frame</span>(<span class="dt">pred =</span> <span class="kw">predict</span>(baggedTree, TestDat), <span class="dt">true =</span> TestDat<span class="op">$</span>shares))</span>
+<span id="cb28-2"><a href="#cb28-2"></a></span>
+<span id="cb28-3"><a href="#cb28-3"></a>boostTbl &lt;-<span class="st"> </span><span class="kw">table</span>(<span class="kw">data.frame</span>(<span class="dt">pred =</span> <span class="kw">predict</span>(boostTree, TestDat), <span class="dt">true =</span> TestDat<span class="op">$</span>shares))</span>
+<span id="cb28-4"><a href="#cb28-4"></a></span>
+<span id="cb28-5"><a href="#cb28-5"></a><span class="co">#misclassificatoon rate</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a><span class="dv">1</span><span class="op">-</span><span class="kw">c</span>(<span class="dt">bag =</span> <span class="kw">sum</span>(<span class="kw">diag</span>(baggedTbl)<span class="op">/</span><span class="kw">sum</span>(baggedTbl)),</span>
+<span id="cb28-7"><a href="#cb28-7"></a>    <span class="dt">boost =</span> <span class="kw">sum</span>(<span class="kw">diag</span>(boostTbl)<span class="op">/</span><span class="kw">sum</span>(boostTbl)))</span></code></pre></div>
+<pre><code>##   bag boost 
+##  0.37  0.34
+</code></pre>
+<p>Since the boosted trees model with a smaller misclassification rate 0.336 and a larger accuracy rate 0.665 than the bagged trees model, we can choose the boosted trees model.</p>
+<h1 id="conclusions">Conclusions</h1>
+<p>For the linear regression model, the binary logistic model is better than the multiple linear regression model after comparing AIC and BIC values.</p>
+<p>For the chosen model, the binary logistic model, we can see that some variables whose coefficients are positive need to be increased while the rest variables whose coefficients are negative needs to be decreased.</p>
+<p>For the ensemble model, the boosted tree model is the best one. This gives highest accuracy around 65%. The data set on a whole gives average accuracy around 64% which shows that the dataset is inconsistent indicating that irrelevant information has been used.</p>
+<p>Therefore, this dataset is insufficient to predict the number of shares with high levels of accuracy for a news article considering its popularity and thus more data needs to be collected.</p>
+
+</body>
+</html>
